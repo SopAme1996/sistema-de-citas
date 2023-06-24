@@ -13,7 +13,7 @@ class UserProfile extends Component
     protected function rules(){
         return [
             'user.name' => 'required',
-            'user.nickName' => 'required|min:3|unique:users',
+            'user.nickName' => 'required|min:3|unique:users,nickName,'.$this->user->id,
             'user.email' => 'required|email|unique:users,email,'.$this->user->id,
             'user.phone' => 'required|max:10',
             'user.about' => 'required:max:150',
@@ -37,7 +37,7 @@ class UserProfile extends Component
 
         if (env('IS_DEMO') && $this->user->id == 1){
             
-            if( auth()->user()->email == $this->user->email ){
+            if( auth()->user()->nickName == $this->user->email ){
                 
                 $this->user->save();
                 return back()->withStatus('Profile successfully updated.');

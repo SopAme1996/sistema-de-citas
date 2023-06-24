@@ -14,7 +14,7 @@ class Register extends Component
 
     protected $rules=[
     'name' => 'required|min:3',
-    'nickName' => 'required|min:3|unique:users',
+    'nickName' => 'required|min:3|unique:users,nickName',
     'email' => 'required|email|unique:users,email',
     'password' => 'required|min:5',];
 
@@ -23,7 +23,7 @@ class Register extends Component
 
         $attributes = $this->validate();
 
-        $user = User::create($attributes);
+        $user = User::create([...$attributes, 'status' => 1]);
 
         auth()->login($user);
         
