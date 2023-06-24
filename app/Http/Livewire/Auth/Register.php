@@ -7,13 +7,14 @@ use Livewire\Component;
 
 class Register extends Component
 {
-
+    public $nickName = '';
     public $name ='';
     public $email = '';
     public $password = '';
 
     protected $rules=[
     'name' => 'required|min:3',
+    'nickName' => 'required|min:3|unique:users',
     'email' => 'required|email|unique:users,email',
     'password' => 'required|min:5',];
 

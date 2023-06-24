@@ -2,17 +2,19 @@
 
 namespace App\Http\Livewire\Auth;
 
+use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\ValidationException;
 use Livewire\Component;
 
 class Login extends Component
 {
 
-    public $email='';
+    public $nickName='';
     public $password='';
 
     protected $rules= [
-        'email' => 'required|email',
+        'nickName' => 'required',
         'password' => 'required'
 
     ];
@@ -24,17 +26,29 @@ class Login extends Component
 
     public function mount() {
       
-        $this->fill(['email' => 'admin@material.com', 'password' => 'secret']);    
+        $this->fill(['nickName' => 'Lsolis', 'password' => 'secret']);    
     }
     
     public function store()
     {
         $attributes = $this->validate();
 
-        if (! auth()->attempt($attributes)) {
-            throw ValidationException::withMessages([
-                'email' => 'Your provided credentials could not be verified.'
-            ]);
+        if (! auth()->attempt([...$attributes, 'status' => 1])) {
+            //Verificamos la informacion del request
+            $messageError = [];
+            $userInfo = User::WHERE('nickName', $this->nickName)->WHERE('password', $this->password)->first();
+            if(!$userInfo){
+                 $messageError = ['nickName' => 'Your nickName credentials could not be verified.'];
+            }else{
+                //validamos las contrasenas
+                $isSamePassword = Hash::check($userInfo->password, $this->password);
+                if(!$isSamePassword){
+                     $messageError = ['password' => 'Your password credentials could not be verified.'];
+                }
+            }
+
+            
+            throw ValidationException::withMessages($messageError);
         }
 
         session()->regenerate();
