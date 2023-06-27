@@ -38,12 +38,12 @@ class Login extends Component
             $messageError = [];
             $userInfo = User::WHERE('nickName', $this->nickName)->WHERE('password', $this->password)->first();
             if(!$userInfo){
-                 $messageError = ['nickName' => 'Las credenciales son incorrectas.'];
+                 $messageError = ['nickName' => 'Your nickName credentials could not be verified.'];
             }else{
                 //validamos las contrasenas
                 $isSamePassword = Hash::check($userInfo->password, $this->password);
                 if(!$isSamePassword){
-                     $messageError = ['password' => 'La contrasena es incorrecta.'];
+                     $messageError = ['password' => 'Your password credentials could not be verified.'];
                 }
             }
 
