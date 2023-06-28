@@ -56,7 +56,13 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
     <!-- CSS Files -->
     <link id="pagestyle" href="{{ asset('assets') }}/css/material-dashboard.css?v=3.0.0" rel="stylesheet" />
+
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+
+    {{-- <script src="{{ asset('assets/sweetalert.min.js') }}"></script> --}}
+
+    @yield('extra.css')
+    
     @livewireStyles
 </head>
 <body class="g-sidenav-show {{ Route::currentRouteName() == 'rtl' ? 'rtl' : '' }} {{ Route::currentRouteName() == 'register' || Route::currentRouteName() == 'static-sign-up'  ? '' : 'bg-gray-200' }}">
@@ -81,7 +87,13 @@
 <!-- Github buttons -->
 <script async defer src="https://buttons.github.io/buttons.js"></script>
 <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
+<script src="{{ asset('assets') }}/js/jquery-2.2.4.min.js"></script>
+<script src="{{ asset('assets') }}/js/bootstrap.min.js"></script>
+<script src="{{ asset('assets') }}/js/jquery.bootstrap.js"></script>
 <script src="{{ asset('assets') }}/js/material-dashboard.min.js?v=3.0.0"></script>
+<script src="{{ asset('assets') }}/js/material-bootstrap-wizard.js"></script>
+<script src="{{ asset('assets') }}/js/jquery.validate.min.js"></script>
+
 @livewireScripts
 </body>
 </html>
