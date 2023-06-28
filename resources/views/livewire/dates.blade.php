@@ -2,16 +2,19 @@
 @section('extra.css')
 <link id="pagestyle" href="{{ asset('assets') }}/css/bootstrap.min.css" rel="stylesheet" />
 <link id="pagestyle" href="{{ asset('assets') }}/css/material-bootstrap-wizard.css" rel="stylesheet" />
+
+{{-- <link id="pagestyle" href="{{ asset('assets') }}/css/material-dashboard.css?v=3.0.0" rel="stylesheet" /> --}}
+
 @endsection
 
 
 <div class="">
     <!-- Navbar -->
     <!-- End Navbar -->
-    <div class="container-fluid py-4">
+    <div class="">
       
-        <div class="row">
-            <div class="col-sm-8 col-sm-offset-2">
+        <div class="">
+            <div class="">
                 <!--      Wizard container        -->
                 <div class="wizard-container">
                     <div class="card wizard-card" data-color="red" id="wizard">
@@ -20,15 +23,21 @@
 
                             <div class="wizard-header">
                                 <h3 class="wizard-title">
-                                    Book a Room
+                                    Agendar Cita
                                 </h3>
-                                <h5>This information will let us know more about you.</h5>
+                                <h5>
+                                    Este es el formulario para agendar una cita con el barbero.
+                                </h5>
                             </div>
                             <div class="wizard-navigation">
                                 <ul>
-                                    <li><a href="#details" data-toggle="tab">Account</a></li>
-                                    <li><a href="#captain" data-toggle="tab">Room Type</a></li>
-                                    <li><a href="#description" data-toggle="tab">Extra Details</a></li>
+                                    <li><a href="#details" data-toggle="tab">Ubicación</a></li>
+                                    <li><a href="#captain" data-toggle="tab">Colaboradores</a></li>
+                                    <li><a href="#description" data-toggle="tab">Servicio</a></li>
+                                    <li><a href="#dates" data-toggle="tab">Fecha y Hora</a></li>
+                                    <li><a href="#information" data-toggle="tab">información</a></li>
+                                    <li><a href="#buy" data-toggle="tab">Carrito</a></li>
+                                    <li><a href="#success" data-toggle="tab">Confirmación</a></li>
                                 </ul>
                             </div>
 
@@ -124,6 +133,74 @@
                                     </div>
                                 </div>
                                 <div class="tab-pane" id="description">
+                                    <div class="row">
+                                        <h4 class="info-text"> Drop us a small description.</h4>
+                                        <div class="col-sm-6 col-sm-offset-1">
+                                            <div class="form-group">
+                                                <label>Room description</label>
+                                                <textarea class="form-control" placeholder="" rows="6"></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <div class="form-group">
+                                                <label class="control-label">Example</label>
+                                                <p class="description">"The room really nice name is recognized as being a really awesome room. We use it every sunday when we go fishing and we catch a lot. It has some kind of magic shield around it."</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane" id="dates">
+                                    <div class="row">
+                                        <h4 class="info-text"> Drop us a small description.</h4>
+                                        <div class="col-sm-6 col-sm-offset-1">
+                                            <div class="form-group">
+                                                <label>Room description</label>
+                                                <textarea class="form-control" placeholder="" rows="6"></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <div class="form-group">
+                                                <label class="control-label">Example</label>
+                                                <p class="description">"The room really nice name is recognized as being a really awesome room. We use it every sunday when we go fishing and we catch a lot. It has some kind of magic shield around it."</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane" id="information">
+                                    <div class="row">
+                                        <h4 class="info-text"> Drop us a small description.</h4>
+                                        <div class="col-sm-6 col-sm-offset-1">
+                                            <div class="form-group">
+                                                <label>Room description</label>
+                                                <textarea class="form-control" placeholder="" rows="6"></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <div class="form-group">
+                                                <label class="control-label">Example</label>
+                                                <p class="description">"The room really nice name is recognized as being a really awesome room. We use it every sunday when we go fishing and we catch a lot. It has some kind of magic shield around it."</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane" id="buy">
+                                    <div class="row">
+                                        <h4 class="info-text"> Drop us a small description.</h4>
+                                        <div class="col-sm-6 col-sm-offset-1">
+                                            <div class="form-group">
+                                                <label>Room description</label>
+                                                <textarea class="form-control" placeholder="" rows="6"></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <div class="form-group">
+                                                <label class="control-label">Example</label>
+                                                <p class="description">"The room really nice name is recognized as being a really awesome room. We use it every sunday when we go fishing and we catch a lot. It has some kind of magic shield around it."</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane" id="success">
                                     <div class="row">
                                         <h4 class="info-text"> Drop us a small description.</h4>
                                         <div class="col-sm-6 col-sm-offset-1">
