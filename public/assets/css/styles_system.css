@@ -1,0 +1,5 @@
+.img-theme {
+    background-image: url("../img/login.avif"),
+        linear-gradient(195deg, #42424a 0%, #191919 100%);
+    opacity: 1;
+}
