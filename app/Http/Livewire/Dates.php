@@ -8,6 +8,15 @@ class Dates extends Component
 {
     public function render()
     {
-        return view('livewire.dates');
+        //sesion de usuario
+        $user = auth()->user();
+        // dd($user->getSucursales);
+        return view('livewire.dates', [
+            'user' => $user,
+            'servicios' => $user->getServicios,
+            'colaboradores' => $user->getColaboradores,
+            'sucursales' => $user->getSucursales,
+
+        ]);
     }
 }
