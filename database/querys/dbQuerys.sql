@@ -74,3 +74,38 @@ values(2, 'ALINEACIÓN DE BARBA EXPRESS SIN VAPORIZADOR', 'Dependiendo del dise�
 
 insert into servicios (idUsuario, nombre, descripcion, tiempo, costo, categoria, estatus)
 values(2, 'LIMPIEZA FACIAL BÁSICA', 'Dependiendo del diseño el costo puede aumentar', '30 MIN', 80, 'FACIAL', 1); 
+
+
+CREATE TABLE IF NOT EXISTS citas (
+    idCita INT AUTO_INCREMENT PRIMARY KEY,
+	idUsuario int,
+    idSucursal int,
+    idColaborador int,
+    idServicio int,
+	fecha date,
+    hora time,
+    nombre varchar(100),
+    apelliddo varchar(100),
+    correo varchar(255),
+    telefono varchar(255),
+    estatus TINYINT NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+)  ENGINE=INNODB;
+
+CREATE TABLE IF NOT EXISTS carrito (
+    idCarrito INT AUTO_INCREMENT PRIMARY KEY,
+	idUsuario int,
+    idCita int,
+    idSucursal int,
+    idColaborador int,
+    idServicio int,
+    servicio varchar(255),
+	fecha date,
+    hora time,
+    nombre varchar(100),
+    apelliddo varchar(100),
+    correo varchar(255),
+    telefono varchar(255),
+    estatus TINYINT NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+)  ENGINE=INNODB;

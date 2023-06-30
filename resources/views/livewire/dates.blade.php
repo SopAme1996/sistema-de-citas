@@ -1,5 +1,6 @@
-<div class="col-12 col-lg-10 m-auto">
-    <div class="mb-5 text-center">
+
+
+<div class="mb-5 text-center">
         <h2>Agendar Cita</h2>
         <p>Este es el formulario para agendar una cita con el barbero</p>
     </div>
@@ -23,7 +24,7 @@
             </div>
         </div>
         <div class="card-body">
-            <form class="multisteps-form__form">
+            <form class="multisteps-form__form" id="wizardCita" action="">
                 <!--single form panel-->
                 <div class="multisteps-form__panel border-radius-xl bg-white js-active" data-animation="FadeIn">
                     <div class="mb-5 ps-3">
@@ -53,7 +54,7 @@
                                             </p>
                                             <div class="d-flex align-items-center justify-content-between">
                                                 <button type="button"
-                                                    class="btn btn-outline-primary btn-sm mb-0">Seleccionar</button>
+                                                    class="btn btn-outline-primary btn-sm mb-0" id="sucursal-{{$sucursal->idSucursal}}">Seleccionar</button>
                                                 <div class="avatar-group mt-2">
 
 
@@ -200,7 +201,7 @@
                                 <div class="input-group input-group-dynamic">
                                     <label class="form-label">Nombre</label>
                                     <input class="multisteps-form__input form-control" type="text"
-                                        onfocus="focused(this)" onfocusout="defocused(this)">
+                                        onfocus="focused(this)" onfocusout="defocused(this)" name="nombre">
                                 </div>
                             </div>
                             <div class="col-12 col-sm-6 mt-3 mt-sm-0">
