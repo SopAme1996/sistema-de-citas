@@ -37,28 +37,34 @@
                                     <div class="card card-blog card-plain">
                                         <div class="card-header p-0 mt-n4 mx-3">
                                             <a class="d-block shadow-xl border-radius-xl">
-                                                <img src="http://127.0.0.1:8000/assets/img/home-decor-1.jpg" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl">
+                                                <img src="http://127.0.0.1:8000/assets/img/home-decor-1.jpg"
+                                                    alt="img-blur-shadow" class="img-fluid shadow border-radius-xl">
                                             </a>
                                         </div>
                                         <div class="card-body p-3">
                                             <p class="mb-0 text-sm">Sucursal</p>
                                             <a href="javascript:;">
                                                 <h5>
-                                                    {{$sucursal->nombre}}
+                                                    {{ $sucursal->nombre }}
                                                 </h5>
                                             </a>
                                             <p class="mb-4 text-sm">
-                                                {{$sucursal->direccion}}
+                                                {{ $sucursal->direccion }}
                                             </p>
                                             <div class="d-flex align-items-center justify-content-between">
-                                                <button type="button" class="btn btn-outline-primary btn-sm mb-0">Seleccionar</button>
+                                                <button type="button"
+                                                    class="btn btn-outline-primary btn-sm mb-0">Seleccionar</button>
                                                 <div class="avatar-group mt-2">
-        
-        
+
+
                                                     @foreach ($colaboradores as $colaborador)
-                                                    <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="" data-bs-original-title="{{$colaborador->nombre}}n">
-                                                        <img alt="Image placeholder" src="http://127.0.0.1:8000/assets/img/team-1.jpg">
-                                                    </a>
+                                                        <a href="javascript:;" class="avatar avatar-xs rounded-circle"
+                                                            data-bs-toggle="tooltip" data-bs-placement="bottom"
+                                                            title=""
+                                                            data-bs-original-title="{{ $colaborador->nombre }}n">
+                                                            <img alt="Image placeholder"
+                                                                src="http://127.0.0.1:8000/assets/img/team-1.jpg">
+                                                        </a>
                                                     @endforeach
                                                 </div>
                                             </div>
@@ -83,18 +89,21 @@
                         <div class="card-body p-3">
                             <ul class="list-group">
                                 @foreach ($colaboradores as $colaborador)
-                                <li class="list-group-item border-0 d-flex align-items-center px-0 mb-2 pt-0">
-                                    <div class="avatar me-3">
-                                        <img src="http://127.0.0.1:8000/assets/img/kal-visuals-square.jpg" alt="kal" class="border-radius-lg shadow">
-                                    </div>
-                                    <div class="d-flex align-items-start flex-column justify-content-center">
-                                        <h6 class="mb-0 text-sm">{{$colaborador->nombre}}</h6>
-                                        <p class="mb-0 text-xs">{{$colaborador->ocupacion}}</p>
-                                        <p class="mb-0 text-xs">{{$colaborador->correo}} - {{$colaborador->telefono}}</p>
+                                    <li class="list-group-item border-0 d-flex align-items-center px-0 mb-2 pt-0">
+                                        <div class="avatar me-3">
+                                            <img src="http://127.0.0.1:8000/assets/img/kal-visuals-square.jpg"
+                                                alt="kal" class="border-radius-lg shadow">
+                                        </div>
+                                        <div class="d-flex align-items-start flex-column justify-content-center">
+                                            <h6 class="mb-0 text-sm">{{ $colaborador->nombre }}</h6>
+                                            <p class="mb-0 text-xs">{{ $colaborador->ocupacion }}</p>
+                                            <p class="mb-0 text-xs">{{ $colaborador->correo }} -
+                                                {{ $colaborador->telefono }}</p>
 
-                                    </div>
-                                    <a class="btn btn-link pe-3 ps-0 mb-0 ms-auto w-25 w-md-auto" href="javascript:;">Agendar</a>
-                                </li>
+                                        </div>
+                                        <a class="btn btn-link pe-3 ps-0 mb-0 ms-auto w-25 w-md-auto"
+                                            href="javascript:;">Agendar</a>
+                                    </li>
                                 @endforeach
                             </ul>
                         </div>
@@ -119,26 +128,28 @@
                                     $categoriaActual = '';
                                 @endphp
                                 @foreach ($servicios as $servicio)
-                                @if($servicio->categoria != $categoriaActual)
-                                    <h4>{{$servicio->categoria}}</h4>
-                                @endif
-                                <li class="list-group-item border-0 d-flex align-items-center px-0 mb-2 pt-0">
-                                    <div class="avatar me-3">
-                                        <img src="http://127.0.0.1:8000/assets/img/kal-visuals-square.jpg" alt="kal" class="border-radius-lg shadow">
-                                    </div>
-                                    <div class="d-flex align-items-start flex-column justify-content-center">
-                                        <h6 class="mb-0 text-sm">{{$servicio->nombre}}</h6>
-                                        <p class="mb-0 text-xs">{{$servicio->descripcion}}</p>
-                                        <p class="mb-0 text-xs">{{$servicio->tiempo}}</p>
+                                    @if ($servicio->categoria != $categoriaActual)
+                                        <h4>{{ $servicio->categoria }}</h4>
+                                    @endif
+                                    <li class="list-group-item border-0 d-flex align-items-center px-0 mb-2 pt-0">
+                                        <div class="avatar me-3">
+                                            <img src="http://127.0.0.1:8000/assets/img/kal-visuals-square.jpg"
+                                                alt="kal" class="border-radius-lg shadow">
+                                        </div>
+                                        <div class="d-flex align-items-start flex-column justify-content-center">
+                                            <h6 class="mb-0 text-sm">{{ $servicio->nombre }}</h6>
+                                            <p class="mb-0 text-xs">{{ $servicio->descripcion }}</p>
+                                            <p class="mb-0 text-xs">{{ $servicio->tiempo }}</p>
 
-                                    </div>
-                                    <a class="btn btn-link pe-3 ps-0 mb-0 ms-auto w-25 w-md-auto" href="javascript:;">$ {{$servicio->costo}}</a>
-                                </li>
-                                @php
-                                    $categoriaActual = $servicio->categoria;
-                                @endphp
+                                        </div>
+                                        <a class="btn btn-link pe-3 ps-0 mb-0 ms-auto w-25 w-md-auto"
+                                            href="javascript:;">$ {{ $servicio->costo }}</a>
+                                    </li>
+                                    @php
+                                        $categoriaActual = $servicio->categoria;
+                                    @endphp
                                 @endforeach
-                            
+
                             </ul>
                         </div>
                         <div class="row">
@@ -152,27 +163,27 @@
                     </div>
                 </div>
                 <!--single form panel-->
-                <div class="multisteps-form__panel border-radius-xl bg-white h-100" data-animation="FadeIn">
+                <div class="multisteps-form__panel border-radius-xl bg-white" data-animation="FadeIn">
                     <h5 class="font-weight-bolder mb-0">Fecha y Hora</h5>
                     <p class="mb-0 text-sm">
                         Selecciona la fecha y hora en la que deseas agendar.
                     </p>
                     <div class="multisteps-form__content mt-3">
                         <div class="row">
-                            <div class="col-12 mt-3" style="">
+                            <div class="col-12 mt-3">
                                 <div class="">
                                     <div class="card card-calendar">
                                         <div class="card-body p-3">
-                                          <div class="calendar" data-bs-toggle="calendar" id="calendar"></div>
+                                            <div class="calendar" data-bs-toggle="calendar" id="calendar"></div>
                                         </div>
-                                      </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                         <div class="button-row d-flex mt-4">
                             <button class="btn bg-gradient-light mb-0 js-btn-prev" type="button"
                                 title="Prev">Prev</button>
-                                <button class="btn bg-gradient-dark ms-auto mb-0 js-btn-next" type="button"
+                            <button class="btn bg-gradient-dark ms-auto mb-0 js-btn-next" type="button"
                                 title="Next">Next</button>
                         </div>
                     </div>
@@ -185,40 +196,44 @@
                     </p>
                     <div class="multisteps-form__content">
                         <div class="row mt-3">
-                          <div class="col-12 col-sm-6">
-                            <div class="input-group input-group-dynamic">
-                              <label class="form-label">Nombre</label>
-                              <input class="multisteps-form__input form-control" type="text" onfocus="focused(this)" onfocusout="defocused(this)">
+                            <div class="col-12 col-sm-6">
+                                <div class="input-group input-group-dynamic">
+                                    <label class="form-label">Nombre</label>
+                                    <input class="multisteps-form__input form-control" type="text"
+                                        onfocus="focused(this)" onfocusout="defocused(this)">
+                                </div>
                             </div>
-                          </div>
-                          <div class="col-12 col-sm-6 mt-3 mt-sm-0">
-                            <div class="input-group input-group-dynamic">
-                              <label class="form-label">Apellido</label>
-                              <input class="multisteps-form__input form-control" type="text" onfocus="focused(this)" onfocusout="defocused(this)">
+                            <div class="col-12 col-sm-6 mt-3 mt-sm-0">
+                                <div class="input-group input-group-dynamic">
+                                    <label class="form-label">Apellido</label>
+                                    <input class="multisteps-form__input form-control" type="text"
+                                        onfocus="focused(this)" onfocusout="defocused(this)">
+                                </div>
                             </div>
-                          </div>
                         </div>
                         <div class="row mt-3">
-                          <div class="col-12 col-sm-6 mt-3 mt-sm-0">
-                            <div class="input-group input-group-dynamic">
-                              <label class="form-label">Email Address</label>
-                              <input class="multisteps-form__input form-control" type="email" onfocus="focused(this)" onfocusout="defocused(this)">
+                            <div class="col-12 col-sm-6 mt-3 mt-sm-0">
+                                <div class="input-group input-group-dynamic">
+                                    <label class="form-label">Email Address</label>
+                                    <input class="multisteps-form__input form-control" type="email"
+                                        onfocus="focused(this)" onfocusout="defocused(this)">
+                                </div>
                             </div>
-                          </div>
-                          <div class="col-12 col-sm-6 mt-3 mt-sm-0">
-                            <div class="input-group input-group-dynamic">
-                              <label class="form-label">Telefono</label>
-                              <input class="multisteps-form__input form-control" type="email" onfocus="focused(this)" onfocusout="defocused(this)">
+                            <div class="col-12 col-sm-6 mt-3 mt-sm-0">
+                                <div class="input-group input-group-dynamic">
+                                    <label class="form-label">Telefono</label>
+                                    <input class="multisteps-form__input form-control" type="email"
+                                        onfocus="focused(this)" onfocusout="defocused(this)">
+                                </div>
                             </div>
-                          </div>
                         </div>
                         <div class="button-row d-flex mt-4">
                             <button class="btn bg-gradient-light mb-0 js-btn-prev" type="button"
-                            title="Prev">Prev</button>
+                                title="Prev">Prev</button>
                             <button class="btn bg-gradient-dark ms-auto mb-0 js-btn-next" type="button"
-                            title="Next">Next</button>
+                                title="Next">Next</button>
                         </div>
-                      </div>
+                    </div>
                 </div>
                 <!--single form panel-->
                 <div class="multisteps-form__panel border-radius-xl bg-white h-100" data-animation="FadeIn">
@@ -236,17 +251,24 @@
                                 </div>
                                 <div class="card-body pt-4 p-3">
                                     <ul class="list-group">
-                                        <li class="list-group-item border-0 d-flex p-4 mb-2 bg-gray-100 border-radius-lg">
+                                        <li
+                                            class="list-group-item border-0 d-flex p-4 mb-2 bg-gray-100 border-radius-lg">
                                             <div class="d-flex flex-column">
                                                 <h6 class="mb-3 text-sm">Oliver Liam</h6>
-                                                <span class="mb-2 text-xs">Sucursal: <span class="text-dark font-weight-bold ms-sm-2">Viking
+                                                <span class="mb-2 text-xs">Sucursal: <span
+                                                        class="text-dark font-weight-bold ms-sm-2">Viking
                                                         Burrito</span></span>
-                                                <span class="mb-2 text-xs">Servicio: <span class="text-dark ms-sm-2 font-weight-bold">oliver@burrito.com</span></span>
-                                                <span class="text-xs">Fecha: <span class="text-dark ms-sm-2 font-weight-bold">FRB1235476</span></span>
+                                                <span class="mb-2 text-xs">Servicio: <span
+                                                        class="text-dark ms-sm-2 font-weight-bold">oliver@burrito.com</span></span>
+                                                <span class="text-xs">Fecha: <span
+                                                        class="text-dark ms-sm-2 font-weight-bold">FRB1235476</span></span>
                                             </div>
                                             <div class="ms-auto text-end">
-                                                <a class="btn btn-link text-danger text-gradient px-3 mb-0" href="javascript:;"><i class="material-icons text-sm me-2">delete</i>Delete</a>
-                                                <a class="btn btn-link text-dark px-3 mb-0" href="javascript:;"><i class="material-icons text-sm me-2">edit</i>Edit</a>
+                                                <a class="btn btn-link text-danger text-gradient px-3 mb-0"
+                                                    href="javascript:;"><i
+                                                        class="material-icons text-sm me-2">delete</i>Delete</a>
+                                                <a class="btn btn-link text-dark px-3 mb-0" href="javascript:;"><i
+                                                        class="material-icons text-sm me-2">edit</i>Edit</a>
                                             </div>
                                         </li>
                                     </ul>
@@ -256,7 +278,7 @@
                         <div class="button-row d-flex mt-4">
                             <button class="btn bg-gradient-light mb-0 js-btn-prev" type="button"
                                 title="Prev">Prev</button>
-                                <button class="btn bg-gradient-dark ms-auto mb-0 js-btn-next" type="button"
+                            <button class="btn bg-gradient-dark ms-auto mb-0 js-btn-next" type="button"
                                 title="Next">Next</button>
                         </div>
                     </div>
@@ -276,7 +298,8 @@
                                             <div class="col-md-6">
                                                 <h6 class="mb-0">Transacciones</h6>
                                             </div>
-                                            <div class="col-md-6 d-flex justify-content-start justify-content-md-end align-items-center">
+                                            <div
+                                                class="col-md-6 d-flex justify-content-start justify-content-md-end align-items-center">
                                                 <i class="material-icons me-2 text-lg">date_range</i>
                                                 <small>23 - 30 March 2020</small>
                                             </div>
@@ -288,15 +311,20 @@
                                         </h6>
                                         <ul class="list-group">
 
-                                            <li class="list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg">
+                                            <li
+                                                class="list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg">
                                                 <div class="d-flex align-items-center">
-                                                    <button class="btn btn-icon-only btn-rounded btn-outline-success mb-0 me-3 p-3 btn-sm d-flex align-items-center justify-content-center"><i class="material-icons text-lg">expand_less</i></button>
+                                                    <button
+                                                        class="btn btn-icon-only btn-rounded btn-outline-success mb-0 me-3 p-3 btn-sm d-flex align-items-center justify-content-center"><i
+                                                            class="material-icons text-lg">expand_less</i></button>
                                                     <div class="d-flex flex-column">
-                                                        <h6 class="mb-1 text-dark text-sm">CORTE DESVANECIDO CON DISEÑO'</h6>
+                                                        <h6 class="mb-1 text-dark text-sm">CORTE DESVANECIDO CON
+                                                            DISEÑO'</h6>
                                                         <span class="text-xs">27 March 2020, at 04:30 AM</span>
                                                     </div>
                                                 </div>
-                                                <div class="d-flex align-items-center text-success text-gradient text-sm font-weight-bold">
+                                                <div
+                                                    class="d-flex align-items-center text-success text-gradient text-sm font-weight-bold">
                                                     + $ 100
                                                 </div>
                                             </li>
@@ -320,5 +348,5 @@
 </div>
 
 @section('extra.js')
-<script src="{{asset('assets/js/components/dates.js')}}"></script>
+    <script src="{{ asset('assets') }}/js/components/dates.js"></script>
 @endsection

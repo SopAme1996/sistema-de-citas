@@ -13,7 +13,7 @@
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 -->
 <!DOCTYPE html>
-<html lang='en' dir="{{ Route::currentRouteName() == 'rtl' ? 'rtl' : '' }}">
+<html lang='es' dir="{{ Route::currentRouteName() == 'rtl' ? 'rtl' : '' }}">
 
 <head>
     <meta charset="utf-8" />
@@ -84,6 +84,8 @@
     <script src="{{ asset('assets') }}/js/core/bootstrap.min.js"></script>
     <script src="{{ asset('assets') }}/js/plugins/perfect-scrollbar.min.js"></script>
     <script src="{{ asset('assets') }}/js/plugins/smooth-scrollbar.min.js"></script>
+    <script src="{{ asset('assets') }}/js/moment.min.js"></script>
+    <script src="{{ asset('assets') }}/js/plugins/fullCalendarIdiomaEs.js"></script>
     @stack('js')
     <script>
         var win = navigator.platform.indexOf('Win') > -1;
@@ -97,10 +99,12 @@
     <!-- Github buttons -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
+    <script src="{{ asset('assets') }}/js/jquery.min.js"></script>
     <script src="{{ asset('assets') }}/js/material-dashboard.min.js?v=3.0.0"></script>
     <script src="{{ asset('assets') }}/js/multistep-form.js"></script>
     <script src="{{ asset('assets') }}/js/fullcalendar.min.js"></script>
     <script src="{{ asset('assets') }}/js/jquery.validate.min.js"></script>
+
 
     @yield('extra.js')
 
