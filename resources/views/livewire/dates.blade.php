@@ -17,6 +17,43 @@
                 <button class="multisteps-form__progress-btn" type="button" title="confirmacion">CONFIRMACION</button>
             </div>
         </div>
+
+        <div class="alert alert-danger alert-dismissible fade show mt-2" role="alert" id="aviso1" style="display: none">
+            <span class="alert-icon align-middle">
+              <span class="material-icons text-md">
+              thumb_up_off_alt
+              </span>
+            </span>
+            <span class="alert-text"><strong>Selecciona!</strong> una sucursal</span>
+        </div>
+
+        <div class="alert alert-danger alert-dismissible fade show mt-2" role="alert" id="aviso2" style="display: none">
+            <span class="alert-icon align-middle">
+              <span class="material-icons text-md">
+              thumb_up_off_alt
+              </span>
+            </span>
+            <span class="alert-text"><strong>Selecciona!</strong> una un colaborador</span>
+        </div>
+
+        <div class="alert alert-danger alert-dismissible fade show mt-2" role="alert" id="aviso3" style="display: none">
+            <span class="alert-icon align-middle">
+              <span class="material-icons text-md">
+              thumb_up_off_alt
+              </span>
+            </span>
+            <span class="alert-text"><strong>Selecciona!</strong> los servicios que requieres.</span>
+        </div>
+
+        <div class="alert alert-danger alert-dismissible fade show mt-2" role="alert" id="aviso4" style="display: none">
+            <span class="alert-icon align-middle">
+              <span class="material-icons text-md">
+              thumb_up_off_alt
+              </span>
+            </span>
+            <span class="alert-text"><strong>Selecciona!</strong> la fecha y hora para tu cita.</span>
+        </div>
+
     </div>
     <div class="card-body">
         <form class="multisteps-form__form" id="wizardCita">
@@ -98,7 +135,7 @@
                                             {{ $colaborador->telefono }}</p>
 
                                     </div>
-                                    <a class="btn btn-link pe-3 ps-0 mb-0 ms-auto w-25 w-md-auto colabarador"
+                                    <a class="btn btn-link pe-3 ps-0 mb-0 ms-auto w-25 w-md-auto colaborador"
                                         href="javascript:;"
                                         id="colaborador-{{ $colaborador->idColaborador }}">Agendar</a>
                                 </li>
@@ -135,13 +172,13 @@
                                             alt="kal" class="border-radius-lg shadow">
                                     </div>
                                     <div class="d-flex align-items-start flex-column justify-content-center">
-                                        <h6 class="mb-0 text-sm">{{ $servicio->nombre }}</h6>
-                                        <p class="mb-0 text-xs">{{ $servicio->descripcion }}</p>
-                                        <p class="mb-0 text-xs">{{ $servicio->tiempo }}</p>
+                                        <h6 class="mb-0 text-sm" id="servicioName-{{ $servicio->idServicio }}">{{ $servicio->nombre }}</h6>
+                                        <p class="mb-0 text-xs" id="servicioDescrip-{{ $servicio->idServicio }}">{{ $servicio->descripcion }}</p>
+                                        <p class="mb-0 text-xs" id="servicioTiempo-{{ $servicio->idServicio }}">{{ $servicio->tiempo }}</p>
 
                                     </div>
-                                    <a class="btn btn-link pe-3 ps-0 mb-0 ms-auto w-25 w-md-auto"
-                                        href="javascript:;">$ {{ $servicio->costo }}</a>
+                                    <a class="btn btn-link pe-3 ps-0 mb-0 ms-auto w-25 w-md-auto servicio"
+                                    id="servicio-{{ $servicio->idServicio }}"  href="javascript:;">$ {{ $servicio->costo }}</a>
                                 </li>
                                 @php
                                     $categoriaActual = $servicio->categoria;
@@ -187,7 +224,7 @@
                 </div>
             </div>
             <!--single form panel-->
-            <div class="multisteps-form__panel border-radius-xl bg-white h-100" data-animation="FadeIn">
+            <div id="informacion" class="multisteps-form__panel border-radius-xl bg-white h-100" data-animation="FadeIn">
                 <h5 class="font-weight-bolder mb-0">Información para agendar</h5>
                 <p class="mb-0 text-sm">
                     Ingresa la información para agendar.
@@ -196,32 +233,44 @@
                     <div class="row mt-3">
                         <div class="col-12 col-sm-6">
                             <div class="input-group input-group-dynamic">
-                                <label class="form-label">Nombre</label>
+                                <label class="form-label">Nombre <span style="color: red">*</span></label>
                                 <input class="multisteps-form__input form-control" type="text"
-                                    onfocus="focused(this)" onfocusout="defocused(this)" name="nombre">
+                                    onfocus="focused(this)" onfocusout="defocused(this)" name="nombre" required id="nameInput">
+                                    <span class="input-group-text" id="avisoName" style="color: red; display: none;">
+                                        Ingresa tu nombre
+                                    </span>
                             </div>
                         </div>
                         <div class="col-12 col-sm-6 mt-3 mt-sm-0">
                             <div class="input-group input-group-dynamic">
-                                <label class="form-label">Apellido</label>
+                                <label class="form-label">Apellido <span style="color: red">*</span></label>
                                 <input class="multisteps-form__input form-control" type="text"
-                                    onfocus="focused(this)" onfocusout="defocused(this)">
+                                    onfocus="focused(this)" onfocusout="defocused(this)" required id="lastNameInput">
+                                    <span class="input-group-text" id="avisoLastName" style="color: red; display: none;">
+                                        Ingresa tu apellido
+                                    </span>
                             </div>
                         </div>
                     </div>
                     <div class="row mt-3">
                         <div class="col-12 col-sm-6 mt-3 mt-sm-0">
                             <div class="input-group input-group-dynamic">
-                                <label class="form-label">Email Address</label>
+                                <label class="form-label">Email Address <span style="color: red">*</span></label>
                                 <input class="multisteps-form__input form-control" type="email"
-                                    onfocus="focused(this)" onfocusout="defocused(this)">
+                                    onfocus="focused(this)" onfocusout="defocused(this)" required id="emailInput">
+                                    <span class="input-group-text" id="avisoEmail" style="color: red; display: none;">
+                                        Ingresa tu correo
+                                    </span>
                             </div>
                         </div>
                         <div class="col-12 col-sm-6 mt-3 mt-sm-0">
                             <div class="input-group input-group-dynamic">
-                                <label class="form-label">Telefono</label>
+                                <label class="form-label">Telefono <span style="color: red">*</span></label>
                                 <input class="multisteps-form__input form-control" type="email"
-                                    onfocus="focused(this)" onfocusout="defocused(this)">
+                                    onfocus="focused(this)" onfocusout="defocused(this)" required id="phoneInput">
+                                    <span class="input-group-text" id="avisoPhone" style="color: red; display: none;">
+                                        Ingresa tu telefono
+                                    </span>
                             </div>
                         </div>
                     </div>
