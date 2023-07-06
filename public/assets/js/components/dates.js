@@ -39,7 +39,7 @@ const calendar = new FullCalendar.Calendar(
             citas.fecha_hora = fechaHora;
             $("#aviso4").hide();
 
-            console.log(citas);
+            // console.log(citas);
         },
         // slotDuration: "01:00:00"
     }
@@ -53,16 +53,15 @@ $(".sucursal").click((e) => {
     let idSuc = e.target.getAttribute("id");
     citas.idSucursal = idSuc;
     $("#aviso1").hide();
-    console.log(citas);
+    // console.log(citas);
 });
 
 $(".colaborador").click((e) => {
     e.preventDefault();
     let idCol = e.target.getAttribute("id");
-    console.log(idCol);
+    // console.log(idCol);
     citas.idColaborador = idCol;
     $("#aviso2").hide();
-    console.log(citas);
 });
 
 let servicios = [];
@@ -85,7 +84,7 @@ $(".servicio").click((e) => {
     }
     citas.servicios = servicios;
     $("#aviso3").hide();
-    console.log(citas);
+    // console.log(citas);
 });
 
 $("#nameInput").keyup((e) => {
@@ -116,6 +115,8 @@ $("#phoneInput").keyup((e) => {
     citas.informacion.telefono = telefono;
     $("#avisoPhone").hide();
 });
+
+
 
 //validamos el formulario antes de pasar a la otra pestana
 const verificamosInformacion = () => {
@@ -154,6 +155,10 @@ const verificamosInformacion = () => {
         return true;
     }
 
+    if(panelActive == "informacion"){
+        console.log(citas);
+    }
+
     return false;
 };
 
@@ -161,7 +166,7 @@ const verificamosInformacion = () => {
 DOMstrings.stepsBar.addEventListener("click", (e) => {
     //validamos si el usuario selecciono una sucursal
     const isEmpty = verificamosInformacion();
-    console.log(isEmpty);
+    // console.log(isEmpty);
 
     if (!isEmpty) {
         //check if click target is a step button

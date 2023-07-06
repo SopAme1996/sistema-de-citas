@@ -283,7 +283,7 @@
                 </div>
             </div>
             <!--single form panel-->
-            <div class="multisteps-form__panel border-radius-xl bg-white h-100" data-animation="FadeIn">
+            <div id="carrito" class="multisteps-form__panel border-radius-xl bg-white h-100" data-animation="FadeIn">
                 <h5 class="font-weight-bolder mb-0">Carrito</h5>
                 <p class="mb-0 text-sm">
                     Revisa tu carrito.
